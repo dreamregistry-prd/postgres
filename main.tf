@@ -108,7 +108,7 @@ resource "aws_rds_cluster_instance" "writer" {
 resource "aws_ssm_parameter" "db_url" {
   name  = "/rds/${random_pet.cluster.id}/db_url"
   type  = "SecureString"
-  value = "postgresql://${random_pet.db_name.id}:${random_password.db_password.result}@${aws_rds_cluster.this.endpoint}:${aws_rds_cluster.this.port}/${random_pet.db_name.id}"
+  value = "postgresql://${random_pet.db_name.id}:${random_password.db_password.result}@${aws_rds_cluster.this.endpoint}/${random_pet.db_name.id}"
 }
 
 output "DB_NAME" {
